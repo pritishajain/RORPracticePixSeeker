@@ -1,0 +1,17 @@
+<div class='form-style'>
+  <h1>Pix Seeker </h1>
+
+  <%= form_tag( "/search" , method: 'get', remote: true) do %>
+  <div class="select">
+    <label for="category">What type of images are you searcing for ? :</label>
+    <select id="category" name="category" class="form-select" aria-label="Default select example">
+      <option value="" disabled selected>Select a category</option>
+      <% Category.all.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+
+    <button type="submit">Search</button>
+    </div>
+  <% end %>
+</div>
